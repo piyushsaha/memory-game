@@ -38,11 +38,14 @@ function App() {
 						}
 					});
 				});
+				resetTurn();
 			}
 			else {
 				console.log("DOESN'T MATCH");
+				// Wait 1s before resetting and flipping back if not matched
+				setTimeout(()=> resetTurn(), 1000);
 			}
-			resetTurn();
+			console.log("reset")
 		}
 	}, [choiceTwo]);
 	
@@ -85,6 +88,7 @@ function App() {
 						key={card.id}
 						card={card}
 						onChoice={handleChoice.bind(null, card)}
+						flipped={card === choiceOne || card === choiceTwo || card.matched}
 					/>
 				})}
 			</div>

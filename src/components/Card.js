@@ -9,7 +9,7 @@ const Card = (props) => {
     
     return (
         <div className="card">
-            <div>
+            <div className={props.flipped ? 'flipped' : ''}>
                 <img className="front" src={props.card.src} />
                 <img className="back" onClick={handleChoice} src="/img/cover.png" />
             </div>

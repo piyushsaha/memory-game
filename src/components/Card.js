@@ -13,7 +13,11 @@ const Card = (props) => {
         <div className="card">
             <div className={props.flipped ? 'flipped' : ''}>
                 <img className="front" src={props.card.src} />
-                <img className="back" onClick={handleChoice} src="/img/cover.png" />
+                {/* For production */}
+                <img className="back" onClick={handleChoice} src="/memory-game/img/cover.png" />
+                
+                {/* For development */}
+                {/* <img className="back" onClick={handleChoice} src="/img/cover.png" /> */}
             </div>
         </div>
     );

@@ -58,6 +58,10 @@ function App() {
 	
 	
 	const shuffleCards = () => {
+		// Setting the choices to null if user starts a new game midway
+		setChoiceOne(null);
+		setChoiceTwo(null);
+		
 		// Doubling and shuffling the cards
 		const shuffledCards = [...cardImages, ...cardImages]
 			.sort(() => Math.random() - 0.5)

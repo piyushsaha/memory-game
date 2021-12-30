@@ -20,6 +20,11 @@ function App() {
 	const [choiceTwo, setChoiceTwo] = useState(null);
 	const [disabled, setDisabled] = useState(false);
 	
+	// Start game automatically
+	useEffect(() => {
+		shuffleCards();
+	}, []);
+	
 	// Compare 2 card choices
 	useEffect(() => {
 		// To prevent checking when the component first mounts

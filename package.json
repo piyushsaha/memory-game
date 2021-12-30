@@ -1,5 +1,6 @@
 {
   "name": "memory-game",
+  "homepage": "https://piyushsaha.github.io/memory-game",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

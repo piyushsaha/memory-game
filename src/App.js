@@ -4,14 +4,27 @@ import Card from './components/Card';
 
 import './App.css';
 
-const cardImages = [
-	{ "src": "/img/helmet-1.png", matched: false },
-	{ "src": "/img/potion-1.png", matched: false },
-	{ "src": "/img/ring-1.png", matched: false },
-	{ "src": "/img/scroll-1.png", matched: false },
-	{ "src": "/img/shield-1.png", matched: false },
-	{ "src": "/img/sword-1.png", matched: false }
-];
+var cardImages;
+if(process.env.ENVIRONMENT === 'production') {
+	cardImages = [
+		{ "src": "/memory-game/img/helmet-1.png", matched: false },
+		{ "src": "/memory-game/img/potion-1.png", matched: false },
+		{ "src": "/memory-game/img/ring-1.png", matched: false },
+		{ "src": "/memory-game/img/scroll-1.png", matched: false },
+		{ "src": "/memory-game/img/shield-1.png", matched: false },
+		{ "src": "/memory-game/img/sword-1.png", matched: false }
+	];
+}
+else {
+	cardImages = [
+		{ "src": "/img/helmet-1.png", matched: false },
+		{ "src": "/img/potion-1.png", matched: false },
+		{ "src": "/img/ring-1.png", matched: false },
+		{ "src": "/img/scroll-1.png", matched: false },
+		{ "src": "/img/shield-1.png", matched: false },
+		{ "src": "/img/sword-1.png", matched: false }
+	];
+}
 
 function App() {
 	const [cards, setCards] = useState([]);

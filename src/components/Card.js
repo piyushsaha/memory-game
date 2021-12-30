@@ -4,7 +4,9 @@ import './Card.css';
 
 const Card = (props) => {
     const handleChoice = () => {
-        props.onChoice();  
+        if(!props.isDisabled) {
+            props.onChoice();
+        }
     }
     
     return (

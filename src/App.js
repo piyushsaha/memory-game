@@ -18,14 +18,16 @@ function App() {
 	const [turns, setTurns] = useState(0);
 	const [choiceOne, setChoiceOne] = useState(null);
 	const [choiceTwo, setChoiceTwo] = useState(null);
+	const [disabled, setDisabled] = useState(false);
 	
 	// Compare 2 card choices
 	useEffect(() => {
 		// To prevent checking when the component first mounts
 		if(choiceOne && choiceTwo) {
+			setDisabled(true);
 			if(choiceOne.src === choiceTwo.src) {
-				console.log("MATCH");
-				// Chnaging matched to true for the matched cards
+				console.log("MATCH");			
+				// Changing matched to true for the matched cards
 				setCards((prevCards) => {
 					return prevCards.map((card) => {
 						// The cards which matched
@@ -62,6 +64,7 @@ function App() {
 			setCards(shuffledCards);
 			// Setting number of turns to 0
 			setTurns(0);
+			setDisabled(false);
 	}
 	
 	// Setting a choice
@@ -76,6 +79,7 @@ function App() {
 		setTurns(prevTurns => {
 			return prevTurns + 1;
 		});
+		setDisabled(false);
 	}
 	
 	return (
@@ -89,6 +93,7 @@ function App() {
 						card={card}
 						onChoice={handleChoice.bind(null, card)}
 						flipped={card === choiceOne || card === choiceTwo || card.matched}
+						isDisabled={disabled}
 					/>
 				})}
 			</div>

@@ -1,26 +1,21 @@
-import React from 'react';
-
 import './Card.css';
 
-const Card = (props) => {
-    const handleChoice = () => {
-        if(!props.isDisabled) {
-            props.onChoice();
+const Card = ({ card, handleChoice, flipped, disabled }) => {
+
+    const handleClick = () => {
+        if (!disabled) {
+            handleChoice(card)
         }
     }
-    
+
     return (
         <div className="card">
-            <div className={props.flipped ? 'flipped' : ''}>
-                <img className="front" src={props.card.src} />
-                {/* For production */}
-                <img className="back" onClick={handleChoice} src="/memory-game/img/cover.png" />
-                
-                {/* For development */}
-                {/* <img className="back" onClick={handleChoice} src="/img/cover.png" /> */}
+            <div className={`card-img-container ${flipped ? "flipped" : ""}`}>
+                <img className="front" src={card.src} alt="card front" />
+                <img className="back" src="/img/cover.png" onClick={handleClick} alt="cover" />
             </div>
         </div>
-    );
+    )
 }
 
 export default Card;

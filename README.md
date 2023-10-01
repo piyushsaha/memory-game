@@ -10,6 +10,6 @@ https://piyushsaha.github.io/memory-game/
 
 ## Demo
 
-![Game Start](/readme-assets/game-start.png)
+![Game Start](./readme-assets/game-start.png)
 
-![Demo Matches](/readme-assets/demo-matches.png)
+![Demo Matches](./readme-assets/demo-matches.png)
